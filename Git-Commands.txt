@@ -1,0 +1,20 @@
+To remove a Git commit permanently from history
+
+1- Identify the commit
+
+$ git log
+
+2- Run the interactive rebase command
+
+$ git rebase -i <hash-commit>^
+
+i-> The ^ character at the end indicates that you want to include the commit before the specified commit in the rebase.
+ii-> replace <hash-commit> with the hash of the commit identified
+iii-> This will open an editor with a list of all the commits since the specified commit. Find the line that corresponds to the commit you want to remove and delete it
+iv-> Save and close the editor
+v-> Resolve commits, if any. And then continue rebase with 'git rebase --continue' command
+
+3- Push the changes
+
+$ git push --force origin my-branch
+
